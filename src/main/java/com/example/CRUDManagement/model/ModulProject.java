@@ -15,7 +15,7 @@ import javax.persistence.*;
 
 public class ModulProject {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private  String listProject;
     private  String company;
