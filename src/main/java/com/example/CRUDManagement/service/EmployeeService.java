@@ -10,4 +10,5 @@ public interface EmployeeService {
     ModulEmployee addEmployee(ModulEmployee modulEmployee);
     Optional<ModulEmployee> updateEmployeeById(Long id, ModulEmployee newEmployeeData);
     void deleteEmployeeById(Long id);
+    ModulEmployee getMaxEmployee();
 }

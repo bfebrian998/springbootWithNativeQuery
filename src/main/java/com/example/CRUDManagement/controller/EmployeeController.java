@@ -39,7 +39,7 @@ public class EmployeeController {
         return new ResponseEntity<>(employeeObj, HttpStatus.OK);
     }
 
-    @PostMapping("/updateEmployeeById/{id}")
+    @PutMapping("/updateEmployeeById/{id}")
     public ResponseEntity<ModulEmployee> updateEmployeeById(@PathVariable Long id, @RequestBody ModulEmployee newEmployeeData) {
         Optional<ModulEmployee> employeeObj = employeeService.updateEmployeeById(id, newEmployeeData);
         return employeeObj.map(employee -> new ResponseEntity<>(employee, HttpStatus.OK))
@@ -50,5 +50,14 @@ public class EmployeeController {
     public ResponseEntity<HttpStatus> deleteEmployeeById(@PathVariable Long id) {
         employeeService.deleteEmployeeById(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("getDataEmployeeMax")
+    public ResponseEntity<ModulEmployee> getEmployeeMax(){
+        ModulEmployee dataMaxEmployee = employeeService.getMaxEmployee();
+        if (dataMaxEmployee.equals(null) ) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(dataMaxEmployee, HttpStatus.OK);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.CRUDManagement.model;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 
@@ -11,10 +12,11 @@ import javax.persistence.*;
 @Setter
 @Getter
 @ToString
+@SuperBuilder
 public class ModulEmployee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private  String name;
     private String devisi;
